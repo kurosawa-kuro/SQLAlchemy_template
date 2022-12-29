@@ -16,7 +16,7 @@ Base = declarative_base()
 #  Model
 #############################
 class User(Base):
-    __tablename__ = 'User'
+    __tablename__ = 'user'
 
     id = Column(Integer,primary_key=True)
     name = Column(String(50))
