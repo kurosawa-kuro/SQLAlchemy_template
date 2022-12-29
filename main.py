@@ -1,3 +1,6 @@
+#############################
+#  Database Setting
+#############################
 from sqlalchemy import create_engine
 from sqlalchemy import Column,Integer,String
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -9,6 +12,9 @@ session = Session()
 
 Base = declarative_base()
 
+#############################
+#  Model
+#############################
 class User(Base):
     __tablename__ = 'User'
 
@@ -19,6 +25,9 @@ class User(Base):
 
 Base.metadata.create_all(engine)
 
+#############################
+#  CRUD Create
+#############################
 User1 = User(name='Joe',age=21,grade='First')
 User2 = User(name='Dan',age=25,grade='Second')
 User3 = User(name='Gene',age=28,grade='Fifth')
@@ -28,6 +37,9 @@ session.add_all([User1,User2,User3])
 
 session.commit()
 
+#############################
+# CRUD Read
+#############################
 Users = session.query(User)
 
 for User in Users:
