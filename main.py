@@ -9,8 +9,8 @@ session = Session()
 
 Base = declarative_base()
 
-class Student(Base):
-    __tablename__ = 'student'
+class User(Base):
+    __tablename__ = 'User'
 
     id = Column(Integer,primary_key=True)
     name = Column(String(50))
@@ -19,16 +19,16 @@ class Student(Base):
 
 Base.metadata.create_all(engine)
 
-student1 = Student(name='Joe',age=21,grade='First')
-student2 = Student(name='Dan',age=25,grade='Second')
-student3 = Student(name='Gene',age=28,grade='Fifth')
+User1 = User(name='Joe',age=21,grade='First')
+User2 = User(name='Dan',age=25,grade='Second')
+User3 = User(name='Gene',age=28,grade='Fifth')
 
-# session.add(student1)
-session.add_all([student1,student2,student3])
+# session.add(User1)
+session.add_all([User1,User2,User3])
 
 session.commit()
 
-students = session.query(Student)
+Users = session.query(User)
 
-for student in students:
-    print(student.name,student.age,student.grade)
+for User in Users:
+    print(User.name,User.age,User.grade)
